@@ -38,8 +38,7 @@ A full-stack open-source chatbot app built using Spring AI backend and React fro
     Backend: 
     set defaults to application.properties:
     spring.ai.openai.chat.options.model=gpt-4o
-    spring.ai.openai.api-key=""
-    Config.java: replace .allowedOrigins to "http://localhost:5173/
+    spring.ai.openai.api-key="" (No need to set API key here, just passing "" will work as we are passing the key by backend\src\main\java\com\chatbot\chatbot\model)
 
     Frontend: set in .env VITE_BACKEND_URL=http://localhost:8080/
     ```

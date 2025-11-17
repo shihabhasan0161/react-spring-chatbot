@@ -14,7 +14,7 @@ public class Config implements WebMvcConfigurer {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://chatbot-vrmn.onrender.com/")
+                        .allowedOrigins("https://chatbot-vrmn.onrender.com/", "http://localhost:5173/")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(true);
