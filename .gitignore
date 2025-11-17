@@ -1,0 +1,17 @@
+# Visual Studio & VS Code
+.vs/
+.vscode/
+
+# Dependency folders
+node_modules/
+
+# Build output folders
+dist/
+build/
+
+# Environment / local config
+.env
+
+# System files
+.DS_Store
+Thumbs.db
