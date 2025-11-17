@@ -1,3 +1,8 @@
+// --- Markdown rendering support ---
+
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
 import {
   useState,
   useEffect,
@@ -228,13 +233,15 @@ const Chat = ({ apiKey }) => {
         </div>
 
         <div className="message-list">
-          {messages.map((msg, index) => (
-            <div key={index} className={`message ${msg.sender}`}>
-              {msg.text}
+            {messages.map((msg, index) => (
+                <div key={index} className={`message ${msg.sender}`}>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        {msg.text}
+                    </ReactMarkdown>
+                </div>
+            ))}
+            <div ref={messagesEndRef} />
             </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
 
         <div className="chat-input-area">
           <input
