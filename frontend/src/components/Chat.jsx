@@ -14,7 +14,7 @@ import { toast } from "react-hot-toast";
 import { config, endpoint } from "../utils/config.js";
 import { MdDelete } from "react-icons/md";
 
-const Chat = ({ apiKey }) => {
+const Chat = ({ apiKey, provider, model }) => {
   const [prompt, setPrompt] = useState("");
   const [previousChats, setPreviousChats] = useState([]);
   const [currentTitle, setCurrentTitle] = useState(null);
@@ -159,7 +159,12 @@ const Chat = ({ apiKey }) => {
     setPrompt("");
 
     try {
-      const response = await config.post(endpoint.CHAT, { prompt, apiKey });
+      const response = await config.post(endpoint.CHAT, { 
+        prompt, 
+        apiKey,
+        provider: provider || "openai",
+        model: model || "gpt-4o"
+      });
       const data = response.data;
       const botMessage = { text: data, sender: "bot" };
 
