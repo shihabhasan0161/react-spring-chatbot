@@ -498,10 +498,29 @@ body {
   margin-bottom: 8px;
 }
 
+.api-modal-select {
+  width: 50%;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  outline: none;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
 .api-modal-text {
   font-size: 0.9rem;
   opacity: 0.8;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+}
+
+.api-modal-label {
+  font-size: 0.85rem;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  display: flexbox;
 }
 
 .api-modal-input {
@@ -510,7 +529,7 @@ body {
   border-radius: 10px;
   border: 1px solid var(--border-color);
   font-size: 0.9rem;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   outline: none;
   background-color: var(--input-bg);
   color: var(--text-color);

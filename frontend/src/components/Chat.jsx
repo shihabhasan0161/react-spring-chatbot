@@ -7,6 +7,7 @@ import {
   useRef,
   useCallback,
   useLayoutEffect,
+  Activity,
 } from "react";
 import { toast } from "react-hot-toast";
 import { config, endpoint } from "../utils/config.js";
@@ -186,9 +187,8 @@ const Chat = ({ apiKey, provider, model }) => {
   return (
     <div className="chat-wrapper">
       {/* Sidebar */}
-      <aside
-        className={showSidebar ? "chat-sidebar visible" : "chat-sidebar hidden"}
-      >
+      <Activity mode={showSidebar ? "visible" : "hidden"}>
+      <aside className="chat-sidebar">
         <div className="chat-sidebar-header">
           <span className="sidebar-title">History</span>
           <button className="sidebar-new-chat-btn" onClick={createNewChat}>
@@ -223,6 +223,7 @@ const Chat = ({ apiKey, provider, model }) => {
           ))}
         </div>
       </aside>
+      </Activity>
 
       {/* Main chat */}
       <div className="chat-main">
