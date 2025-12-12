@@ -597,3 +597,155 @@ body {
     padding: 12px;
   }
 }
+
+/* Add these styles to your existing App.css */
+
+/* Custom Dropdown Styles */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.custom-dropdown-trigger {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.custom-dropdown-trigger:hover {
+  border-color: var(--primary-color);
+  background-color: var(--component-bg);
+}
+
+.custom-dropdown-trigger.open {
+  border-color: var(--primary-color);
+  background-color: var(--component-bg);
+}
+
+.custom-dropdown-value {
+  font-size: 0.9375rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.custom-dropdown-arrow {
+  color: var(--text-color);
+  opacity: 0.6;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.custom-dropdown-trigger.open .custom-dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.custom-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: var(--modal-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  animation: slideDown 0.2s ease;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-dropdown-item {
+  padding: 12px 16px;
+  font-size: 0.9375rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+}
+
+.custom-dropdown-item:hover {
+  background-color: var(--input-bg);
+}
+
+.custom-dropdown-item.selected {
+  background-color: var(--user-message-bg);
+  font-weight: 500;
+}
+
+.custom-dropdown-item.selected:hover {
+  background-color: var(--user-message-bg);
+  opacity: 0.9;
+}
+
+/* Improved Modal Sections */
+.api-modal-section {
+  margin-bottom: 20px;
+}
+
+.api-modal-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--text-color);
+}
+
+/* Responsive improvements for dropdowns */
+@media (max-width: 768px) {
+  .custom-dropdown-trigger,
+  .custom-dropdown-item {
+    padding: 11px 14px;
+    font-size: 0.875rem;
+  }
+
+  .custom-dropdown-arrow {
+    width: 10px;
+    height: 6px;
+  }
+
+  .api-modal-section {
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-dropdown-trigger,
+  .custom-dropdown-item {
+    padding: 10px 12px;
+    font-size: 0.8125rem;
+  }
+
+  .custom-dropdown-menu {
+    max-height: 200px;
+  }
+
+  .api-modal-section {
+    margin-bottom: 16px;
+  }
+
+  .api-modal-label {
+    font-size: 0.8125rem;
+    margin-bottom: 6px;
+  }
+}

@@ -1,5 +1,6 @@
 import Chat from "./components/Chat";
 import Image from "./components/Image";
+import CustomDropdown from "./components/CustomDropdown";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 import { useTheme } from "./contexts/ThemeContext";
@@ -23,9 +24,21 @@ const App = () => {
   const { theme, toggleTheme } = useTheme();
 
   const modelOptions = {
-    openai: ["gpt-4o", "gpt-4", "gpt-3.5-turbo"],
-    gemini: ["gemini-2.5-flash", "gemini-2.5-pro"]
+    openai: [
+      { value: "gpt-4o", label: "gpt-4o" },
+      { value: "gpt-4", label: "gpt-4" },
+      { value: "gpt-3.5-turbo", label: "gpt-3.5-turbo" }
+    ],
+    gemini: [
+      { value: "gemini-2.5-flash", label: "gemini-2.5-flash" },
+      { value: "gemini-2.5-pro", label: "gemini-2.5-pro" }
+    ]
   };
+
+  const providerOptions = [
+    { value: "openai", label: "OpenAI" },
+    { value: "gemini", label: "Google Gemini" }
+  ];
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -41,7 +54,7 @@ const App = () => {
 
   useEffect(() => {
     if (provider) {
-    localStorage.setItem("provider", provider);
+      localStorage.setItem("provider", provider);
     } else {
       localStorage.removeItem("provider");
     }
@@ -60,21 +73,26 @@ const App = () => {
     setTempApiKey(apiKey);
     setTempProvider(provider);
     setTempModel(model);
-  }
+  };
 
   const closeApiModal = () => {
     setShowApiModal(false);
     setTempApiKey(apiKey);
     setTempProvider(provider);
     setTempModel(model);
-  }
+  };
 
   const saveApiKey = () => {
     setApiKey(tempApiKey);
     setProvider(tempProvider);
     setModel(tempModel);
     setShowApiModal(false);
-  }
+  };
+
+  const handleProviderChange = (newProvider) => {
+    setTempProvider(newProvider);
+    setTempModel(modelOptions[newProvider][0].value);
+  };
 
   return (
     <>
@@ -120,17 +138,12 @@ const App = () => {
             
             <div className="api-modal-section">
               <label className="api-modal-label">AI Provider</label>
-              <select 
-                className="api-modal-select"
+              <CustomDropdown
                 value={tempProvider}
-                onChange={(e) => {
-                  setTempProvider(e.target.value);
-                  setTempModel(modelOptions[e.target.value][0]);
-                }}
-              >
-                <option value="openai">OpenAI</option>
-                <option value="gemini">Google Gemini</option>
-              </select>
+                options={providerOptions}
+                onChange={handleProviderChange}
+                placeholder="Select provider"
+              />
               <p className="api-modal-text">
                 {tempProvider === 'openai' 
                   ? "Get your API key from your OpenAI account" 
@@ -140,15 +153,12 @@ const App = () => {
 
             <div className="api-modal-section">
               <label className="api-modal-label">Model</label>
-              <select 
-                className="api-modal-select"
+              <CustomDropdown
                 value={tempModel}
-                onChange={(e) => setTempModel(e.target.value)}
-              >
-                {modelOptions[tempProvider].map(m => (
-                  <option key={m} value={m}>{m}</option>
-                ))}
-              </select>
+                options={modelOptions[tempProvider]}
+                onChange={setTempModel}
+                placeholder="Select model"
+              />
             </div>
 
             <div className="api-modal-section">
