@@ -37,3 +37,13 @@
   --modal-overlay: rgba(0, 0, 0, 0.5);
   --modal-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
+
+/* Light theme → normal logo */
+:root[data-theme="light"] .app-logo img {
+  filter: none;
+}
+
+/* Dark theme → invert logo */
+:root[data-theme="dark"] .app-logo img {
+  filter: invert(1);
+}

@@ -38,14 +38,10 @@ body {
 }
 
 .app-logo img {
-  width: 60px;      
+  width: 70px;      
   height: 60px;
   object-fit: contain;
   cursor: pointer;
-  filter: grayscale(0.2);
-}
-.app-logo img:hover {
-  filter: grayscale(0);
 }
 
 .header-actions {

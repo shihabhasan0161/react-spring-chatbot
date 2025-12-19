@@ -99,7 +99,7 @@ const App = () => {
       <div className="app-container">
         <div className="app-header">
           <div className="app-logo">
-            <img src="/logo.svg" alt="Chatbot Logo" />
+            <img src="/logo.png" alt="Chatbot Logo" />
           </div>
           <div className="header-actions">
             <button className="api-key-button" onClick={openApiModal}>
