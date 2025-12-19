@@ -98,7 +98,9 @@ const App = () => {
     <>
       <div className="app-container">
         <div className="app-header">
-          <h1 className="app-title">ChatBot</h1>
+          <div className="app-logo">
+            <img src="/logo.png" alt="Chatbot Logo" />
+          </div>
           <div className="header-actions">
             <button className="api-key-button" onClick={openApiModal}>
               {apiKey ? "Update Settings" : "Configure"}
@@ -135,7 +137,7 @@ const App = () => {
         <div className="api-modal-overlay">
           <div className="api-modal">
             <div className="api-modal-header">Configure API & Model</div>
-            
+
             <div className="api-modal-section">
               <label className="api-modal-label">AI Provider</label>
               <CustomDropdown
@@ -145,8 +147,8 @@ const App = () => {
                 placeholder="Select provider"
               />
               <p className="api-modal-text">
-                {tempProvider === 'openai' 
-                  ? "Get your API key from your OpenAI account" 
+                {tempProvider === 'openai'
+                  ? "Get your API key from your OpenAI account"
                   : "Get your API key from Google AI Studio"}
               </p>
             </div>

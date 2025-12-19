@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./frontend/public/logo.svg" alt="Chatbot Logo" style="width:25%; max-width:100px;" />
+</p>
+
 # React Spring Chatbot
 
 A full-stack, open-source chatbot application that combines the power of **Spring AI** (backend) with **React** (frontend) to deliver intelligent chat completions and AI-powered image generation in a seamless, user-friendly experience.

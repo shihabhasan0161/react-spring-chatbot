@@ -37,11 +37,11 @@ body {
   gap: 16px;
 }
 
-.app-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-  margin: 0;
+.app-logo img {
+  width: 70px;      
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
 }
 
 .header-actions {
